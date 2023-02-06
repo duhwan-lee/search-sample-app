@@ -15,7 +15,6 @@ sample:
     client:
       kakao:
         api-key: af046e9a2137007492338aeaed6943c4
-        admin-key : df8e86d8acb3e22a8a6fad562c39ed83
       naver:
         client-key: lTeV59VHOcfwRnKp7rBA
         client-secret: CepaA1fyRF
