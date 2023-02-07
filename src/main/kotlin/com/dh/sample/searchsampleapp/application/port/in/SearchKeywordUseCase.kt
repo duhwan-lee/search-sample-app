@@ -7,5 +7,8 @@ interface SearchKeywordUseCase {
     @Async
     fun asyncAddCntSearchKeyword(keyword: String)
 
+    //for concurrency test code
+    //fun addCntSearchKeyword(keyword: String):EntityKeyword
+
     fun getKeywordTopList():List<KeywordRank>
 }

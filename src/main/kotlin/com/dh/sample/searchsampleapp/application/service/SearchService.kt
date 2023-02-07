@@ -34,9 +34,16 @@ class SearchService(
     }
 
     override fun asyncAddCntSearchKeyword(keyword: String) {
-        log.info("async keyword save $keyword")
-        //TODO : add count
+        log.info("async saved $keyword")
+        h2KeywordPort.addCntByKeyword(keyword)
     }
+
+    /*
+    //for concurrency test code
+    override fun addCntSearchKeyword(keyword: String): EntityKeyword {
+        log.info("async keyword save $keyword")
+        return h2KeywordPort.addCntByKeyword(keyword);
+    }*/
 
     override fun getKeywordTopList(): List<KeywordRank> {
         return h2KeywordPort.getTopList(10).mapIndexed { index, entityKeyword ->

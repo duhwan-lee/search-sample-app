@@ -33,4 +33,12 @@ class SearchController(
         val list = searchKeywordUseCase.getKeywordTopList()
         return ResponseEntity(list, HttpStatus.OK)
     }
+
+    /*
+    //for concurrency test code
+    @GetMapping("/test")
+    fun jpaTest(@RequestParam("keyword") keyword: String): ResponseEntity<EntityKeyword> {
+        val entity = searchKeywordUseCase.addCntSearchKeyword(keyword)
+        return ResponseEntity(entity, HttpStatus.OK)
+    }*/
 }

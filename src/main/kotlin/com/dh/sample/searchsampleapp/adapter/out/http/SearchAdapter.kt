@@ -15,6 +15,7 @@ import org.springframework.boot.configurationprocessor.json.JSONObject
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.http.HttpStatus
+import org.springframework.transaction.annotation.Transactional
 
 @Adapter
 class SearchAdapter(
@@ -77,8 +78,22 @@ class SearchAdapter(
         throw SearchBlogException()
     }
 
-    override fun getCntByKeyword(keyword: String): EntityKeyword {
-        return keywordRepository.findByKeywordEquals(keyword)
+    /*
+    //for concurrency test code
+    @Transactional
+    override fun addCntByKeyword(keyword: String): EntityKeyword {
+        val entity =
+            keywordRepository.findByKeywordEquals(keyword) ?: EntityKeyword(keyword, 0)
+        entity.addCnt()
+        return keywordRepository.save(entity)
+    }*/
+
+    @Transactional
+    override fun addCntByKeyword(keyword: String): EntityKeyword {
+        val entity =
+            keywordRepository.findWithKeywordForUpdate(keyword) ?: EntityKeyword(keyword, 0)
+        entity.addCnt()
+        return keywordRepository.save(entity)
     }
 
     override fun getTopList(size: Int): List<EntityKeyword> {

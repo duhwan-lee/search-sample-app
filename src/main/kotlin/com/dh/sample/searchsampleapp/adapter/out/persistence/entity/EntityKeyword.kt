@@ -9,5 +9,8 @@ class EntityKeyword(keyword: String, cnt: Int) {
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long? = null
     val keyword: String = keyword
-    val cnt: Int = cnt
+    var cnt: Int = cnt
+    fun addCnt() {
+        cnt += 1
+    }
 }
