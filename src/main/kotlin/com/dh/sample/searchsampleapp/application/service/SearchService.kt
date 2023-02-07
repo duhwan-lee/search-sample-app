@@ -49,7 +49,7 @@ class SearchService(
 
     override fun getKeywordTopList(): List<KeywordRank> {
         return h2KeywordPort.getTopList(10).mapIndexed { index, entityKeyword ->
-            KeywordRank(index, entityKeyword.keyword, entityKeyword.cnt)
+            KeywordRank(index + 1, entityKeyword.keyword, entityKeyword.cnt)
         }
     }
 
