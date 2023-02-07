@@ -12,7 +12,7 @@ data class KakaoPayload(
             //Memo : 아래 기본값 세팅은 adapter에서 일괄처리해 줄수도 있음.
             val sort = searchRequest.sort?.name ?: "accuracy"
             val page = searchRequest.page ?: 1
-            val size = searchRequest.page ?: 10
+            val size = searchRequest.size ?: 10
 
             return KakaoPayload(query, sort, page, size)
         }

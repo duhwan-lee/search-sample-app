@@ -1,4 +1,4 @@
 package com.dh.sample.searchsampleapp.domain.exception
 
-class SearchBlogException : RuntimeException() {
+class SearchBlogException(override val message: String) : RuntimeException() {
 }

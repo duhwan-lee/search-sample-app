@@ -1,10 +1,10 @@
 package com.dh.sample.searchsampleapp.adapter.`in`.rest
 
 import com.dh.sample.searchsampleapp.adapter.`in`.data.SearchRequest
+import com.dh.sample.searchsampleapp.adapter.`in`.data.SearchResult
 import com.dh.sample.searchsampleapp.application.port.`in`.SearchBlogUseCase
 import com.dh.sample.searchsampleapp.application.port.`in`.SearchKeywordUseCase
 import com.dh.sample.searchsampleapp.domain.KeywordRank
-import com.dh.sample.searchsampleapp.domain.SearchBlog
 import com.dh.sample.searchsampleapp.logger
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
@@ -21,11 +21,11 @@ class SearchController(
     val log = logger<SearchController>()
 
     @GetMapping("/search/blog")
-    fun getSearchBlog(@Valid searchRequest: SearchRequest): ResponseEntity<List<SearchBlog>> {
+    fun getSearchBlog(@Valid searchRequest: SearchRequest): ResponseEntity<SearchResult> {
         log.info("$searchRequest")
         searchKeywordUseCase.asyncAddCntSearchKeyword(searchRequest.keyword)
-        val listSearchBlog = searchBlogUseCase.searchBlogBy(searchRequest)
-        return ResponseEntity(listSearchBlog, HttpStatus.OK)
+        val searchResult = searchBlogUseCase.searchBlogBy(searchRequest)
+        return ResponseEntity(searchResult, HttpStatus.OK)
     }
 
     @GetMapping("/list/keyword")
