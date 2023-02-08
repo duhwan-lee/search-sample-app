@@ -1,0 +1,3 @@
+include::{snippets}/keyword_list/http-request.adoc[]
+include::{snippets}/keyword_list/http-response.adoc[]
+include::{snippets}/keyword_list/curl-request.adoc[]
