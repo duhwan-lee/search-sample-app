@@ -1,5 +1,7 @@
 # search-sample-app
 
+REST API **http://localhost:8080/docs/index.html**
+
 # APIs
 
 ## Search Blog
