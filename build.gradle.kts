@@ -82,5 +82,9 @@ tasks {
     build {
         dependsOn(asciidoctor)
     }
+
+    bootJar{
+        dependsOn(asciidoctor)
+    }
 }
 
