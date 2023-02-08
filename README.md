@@ -1,7 +1,11 @@
 # search-sample-app
 
-Jar **https://github.com/duhwan-lee/search-sample-app/raw/main/jar/search-sample-app-0.0.1-SNAPSHOT.jar**
-REST API **http://localhost:8080/docs/index.html**
+jar file  [**https://github.com/duhwan-lee/search-sample-app/raw/main/jar/search-sample-app-0.0.1-SNAPSHOT.jar**]
+```
+java -jar search-sample-app-0.0.1-SNAPSHOT.jar
+```
+
+REST API [**http://localhost:8080/docs/index.html**]
 
 # APIs
 
